@@ -8,15 +8,15 @@
 **代码演示:**
 
 ```javascript
-            var videoRecording = new VideoRecording(document.getElementById("video"))
-            document.getElementById("start").onclick = function () {
-                videoRecording.startRecording();
-            }
-            document.getElementById("stop").onclick = function () {
-                videoRecording.stopRecording().then((blob) => {
-                    document.getElementById('preview').src = window.URL.createObjectURL(blob);
-                });
-            }
+var videoRecording = new VideoRecording(document.getElementById("video"))
+document.getElementById("start").onclick = function () {
+    videoRecording.startRecording();
+}
+document.getElementById("stop").onclick = function () {
+    videoRecording.stopRecording().then((blob) => {
+        document.getElementById('preview').src = window.URL.createObjectURL(blob);
+    });
+}
 ```
 
 
@@ -46,7 +46,7 @@ MediaStream parameter accepts following values:
 ```javascript
 import VideoRecording from "VideoRecording"
 
- var videoRecording = new VideoRecording(document.getElementById("video"))
+var videoRecording = new VideoRecording(document.getElementById("video"))
 ```
 
 ## API
