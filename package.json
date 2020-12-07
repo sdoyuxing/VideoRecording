@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author":"hetao",
   "description": "js records the content played by vedio",
-  "main": "index.js",
+  "main": "dist/VideoRecording.js",
   "scripts": {
     "build": "webpack"
   },
