@@ -43,7 +43,9 @@ document.getElementById("stop").onclick = function () {
 
 ## npm引入
 
-MediaStream parameter accepts following values:
+```javascript
+npm install VideoRecording --save
+```
 
 ```javascript
 import VideoRecording from "VideoRecording"
