@@ -1,13 +1,21 @@
 {
   "name": "videorecording",
   "version": "1.0.0",
-  "description": "",
+  "author":"hetao",
+  "description": "js records the content played by vedio",
   "main": "index.js",
   "scripts": {
     "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "webrtc",
+    "video-recording"
+  ],
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/sdoyuxing/VideoRecording/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-transform-modules-commonjs": "^7.12.1",
