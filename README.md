@@ -3,15 +3,17 @@
 **js库录制vedio播放的内容**
 
 
-[![npm](https://img.shields.io/npm/v/recordrtc.svg)](https://npmjs.org/package/recordrtc) [![downloads](https://img.shields.io/npm/dm/recordrtc.svg)](https://npmjs.org/package/recordrtc) [![Build Status: Linux](https://travis-ci.org/muaz-khan/RecordRTC.png?branch=master)](https://travis-ci.org/muaz-khan/RecordRTC)
+<!-- [![npm](https://img.shields.io/npm/v/recordrtc.svg)](https://npmjs.org/package/recordrtc) [![downloads](https://img.shields.io/npm/dm/recordrtc.svg)](https://npmjs.org/package/recordrtc) [![Build Status: Linux](https://travis-ci.org/muaz-khan/RecordRTC.png?branch=master)](https://travis-ci.org/muaz-khan/RecordRTC) -->
 
 **代码演示:**
 
 ```javascript
 var videoRecording = new VideoRecording(document.getElementById("video"))
+
 document.getElementById("start").onclick = function () {
     videoRecording.startRecording();
 }
+
 document.getElementById("stop").onclick = function () {
     videoRecording.stopRecording().then((blob) => {
         document.getElementById('preview').src = window.URL.createObjectURL(blob);
@@ -58,7 +60,7 @@ var videoRecording = new VideoRecording(document.getElementById("video"))
 ## Issues提问
 
 * Github: [https://github.com/sdoyuxing/VideoRecording/issues](https://github.com/sdoyuxing/VideoRecording/issues)
-`
+
 
 
 
