@@ -3,7 +3,7 @@
 **js库录制vedio播放的内容**
 
 
-<!-- [![npm](https://img.shields.io/npm/v/recordrtc.svg)](https://npmjs.org/package/recordrtc) [![downloads](https://img.shields.io/npm/dm/recordrtc.svg)](https://npmjs.org/package/recordrtc) [![Build Status: Linux](https://travis-ci.org/muaz-khan/RecordRTC.png?branch=master)](https://travis-ci.org/muaz-khan/RecordRTC) -->
+[![npm](https://img.shields.io/npm/v/videorecording.svg)](https://npmjs.org/package/videorecording) [![downloads](https://img.shields.io/npm/dm/videorecording.svg)](https://npmjs.org/package/videorecording)
 
 **代码演示:**
 
