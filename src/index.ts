@@ -1,6 +1,5 @@
 import { Transition } from './transition'
 import { Record } from './record'
-import '@babel/polyfill'
 
 declare var window: any;
 
@@ -9,11 +8,13 @@ class VideoRecording {
     private recorder: Record
     private canvasElement: HTMLCanvasElement
     private transition: Transition
+    private context2d: CanvasRenderingContext2D
     constructor(vedioElement: HTMLVideoElement, canvasElement?: HTMLCanvasElement) {
         this.vedioElement = vedioElement
         this.transition = new Transition(this.render.bind(this))
         this.canvasElement = canvasElement || document.createElement("canvas");
         this.recorder = new Record(this.canvasElement, 'canvas');
+        this.context2d = this.canvasElement.getContext("2d");
         if (this.vedioElement.videoWidth === 0) {
             this.vedioElement.onloadeddata = () => {
                 this.canvasElement.width = this.vedioElement.videoWidth;
@@ -30,14 +31,14 @@ class VideoRecording {
         this.transition.start()
     }
     private render(): void {
-        this.canvasElement.getContext("2d").drawImage(this.vedioElement, 0, 0, this.canvasElement.width, this.canvasElement.height)
+        this.context2d.drawImage(this.vedioElement, 0, 0, this.canvasElement.width, this.canvasElement.height)
     }
     public stopRecording(): Promise<Blob> {
         this.transition.stop()
         return this.recorder.stopRecording()
 
     }
-    public getBlobs() {
+    public getBlobs(): Blob {
         return this.recorder.getBlobs()
     }
 }

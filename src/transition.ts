@@ -35,16 +35,16 @@ export class Transition {
     public stop(): void {
         this.running = false;
     }
-    public setIntervalTime(intervalTime: number = 0) {
+    public setIntervalTime(intervalTime: number = 0): void {
         this.intervalTime = intervalTime;
     }
-    public getIntervalTime() {
+    public getIntervalTime():number {
         return this.intervalTime;
     }
-    public setRender(render: Function = () => { }) {
+    public setRender(render: Function = () => { }): void {
         this.render = render;
     }
-    public getRender(render: Function = () => { }) {
+    public getRender(render: Function = () => { }):Object {
         return this.render;
     }
 }
