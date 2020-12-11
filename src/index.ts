@@ -14,7 +14,7 @@ class VideoRecording {
         this.transition = new Transition(this.render.bind(this))
         this.canvasElement = canvasElement || document.createElement("canvas");
         this.recorder = new Record(this.canvasElement, 'canvas');
-        this.context2d = this.canvasElement.getContext("2d");
+        this.context2d = this.canvasElement.getContext("2d");//兼容火狐，要先getContext才能captureStream
         if (this.vedioElement.videoWidth === 0) {
             this.vedioElement.onloadeddata = () => {
                 this.canvasElement.width = this.vedioElement.videoWidth;

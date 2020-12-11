@@ -22,7 +22,7 @@ document.getElementById("stop").onclick = function () {
 ```
 
 
-## Browsers Support
+## 浏览器支持
 
 | Browser        | Operating System                    | Features               |
 | -------------  |-------------                        |---------------------   |
