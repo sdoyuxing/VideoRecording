@@ -1,6 +1,6 @@
 {
   "name": "videorecording",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "hetao",
   "description": "js records the content played by vedio",
   "main": "dist/VideoRecording.js",
