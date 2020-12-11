@@ -22,14 +22,14 @@ document.getElementById("stop").onclick = function () {
 ```
 
 
-<!-- ## Browsers Support
+## Browsers Support
 
 | Browser        | Operating System                    | Features               |
 | -------------  |-------------                        |---------------------   |
-| Google Chrome  | Windows + macOS + Ubuntu + Android  |  video |
-| Firefox        | Windows + macOS + Ubuntu + Android  |  video |
-| Opera          | Windows + macOS + Ubuntu + Android  |  video  |
-| Edge (new)     | Windows (7 or 8 or 10) and MacOSX   | video  |
+| Google Chrome  | Windows                             |  video |
+| Firefox        | Windows                             |  video |
+| Edge (new)     | Windows (7 or 8 or 10)              |  video |
+<!-- | Opera          | Windows + macOS + Ubuntu + Android  |  video  |
 | Safari         | macOS + iOS (iPhone/iPad)           |  video  | -->
 
 
