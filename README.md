@@ -1,4 +1,4 @@
-# VideoRecording.js| [1.1.0](https://github.com/sdoyuxing/VideoRecording/blob/master/ReleaseNote.md)
+# VideoRecording.js | [1.1.0](https://github.com/sdoyuxing/VideoRecording/blob/master/ReleaseNote.md)
 
 **js库录制vedio播放的内容**
 
