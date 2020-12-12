@@ -16,8 +16,7 @@
     <script src="../dist/VideoRecording.js"></script>
     <script>
         window.onload = function () {
-            var videoRecording = new VideoRecording(document.getElementById("video"), document.createElement(
-                "canvas"))
+            var videoRecording = new VideoRecording(document.getElementById("video"))
             document.getElementById("start").onclick = function () {
                 videoRecording.startRecording();
             }

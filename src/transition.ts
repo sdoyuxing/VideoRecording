@@ -16,6 +16,7 @@ export class Transition {
     }
 
     public start(): void {
+        this.running = true
         this.requestAnimationFrame((timestamp) => {
             this.step(timestamp)
         });
@@ -38,13 +39,13 @@ export class Transition {
     public setIntervalTime(intervalTime: number = 0): void {
         this.intervalTime = intervalTime;
     }
-    public getIntervalTime():number {
+    public getIntervalTime(): number {
         return this.intervalTime;
     }
     public setRender(render: Function = () => { }): void {
         this.render = render;
     }
-    public getRender(render: Function = () => { }):Object {
+    public getRender(render: Function = () => { }): Object {
         return this.render;
     }
 }

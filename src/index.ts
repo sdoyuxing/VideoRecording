@@ -1,41 +1,30 @@
-import { Transition } from './transition'
-import { Record } from './record'
+import { VedioRecorder } from './vedioRecorder'
+import { CanvasRecorder } from './canvasRecorder'
+import { AudioRecorder } from './audioRecorder'
+import { MediaStreamRecorder } from './mediaStreamRecorder'
 
 declare var window: any;
 
 class VideoRecording {
-    private vedioElement: HTMLVideoElement
-    private recorder: Record
-    private canvasElement: HTMLCanvasElement
-    private transition: Transition
-    private context2d: CanvasRenderingContext2D
-    constructor(vedioElement: HTMLVideoElement, canvasElement?: HTMLCanvasElement) {
-        this.vedioElement = vedioElement
-        this.transition = new Transition(this.render.bind(this))
-        this.canvasElement = canvasElement || document.createElement("canvas");
-        this.recorder = new Record(this.canvasElement, 'canvas');
-        this.context2d = this.canvasElement.getContext("2d");//兼容火狐，要先getContext才能captureStream
-        if (this.vedioElement.videoWidth === 0) {
-            this.vedioElement.onloadeddata = () => {
-                this.canvasElement.width = this.vedioElement.videoWidth;
-                this.canvasElement.height = this.vedioElement.videoHeight;
-            }
-        } else {
-            this.canvasElement.width = this.vedioElement.videoWidth;
-            this.canvasElement.height = this.vedioElement.videoHeight;
+    private recorder: MediaStreamRecorder
+    private element: HTMLElement
+    constructor(element: HTMLElement) {
+        this.element = element
+        if (element instanceof HTMLCanvasElement) {
+            this.recorder = new CanvasRecorder(element)
+        }
+        if (element instanceof HTMLVideoElement) {
+            this.recorder = new VedioRecorder(element)
+        }
+        if (element instanceof HTMLAudioElement) {
+            this.recorder = new AudioRecorder(element)
         }
     }
     public startRecording(): void {
-        this.recorder.startRecording()
-        this.render()
-        this.transition.start()
-    }
-    private render(): void {
-        this.context2d.drawImage(this.vedioElement, 0, 0, this.canvasElement.width, this.canvasElement.height)
+        this.recorder.record()
     }
     public stopRecording(): Promise<Blob> {
-        this.transition.stop()
-        return this.recorder.stopRecording()
+        return this.recorder.stop()
 
     }
     public getBlobs(): Blob {
