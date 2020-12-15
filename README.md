@@ -1,6 +1,6 @@
 # VideoRecording.js | [1.1.0](https://github.com/sdoyuxing/VideoRecording/blob/master/ReleaseNote.md)
 
-**js库录制vedio播放的内容**
+**js库录制vedio、audio、canvas播放的内容**
 
 
 [![npm](https://img.shields.io/npm/v/videorecording.svg)](https://npmjs.org/package/videorecording) [![downloads](https://img.shields.io/npm/dm/videorecording.svg)](https://npmjs.org/package/videorecording)
@@ -55,7 +55,7 @@ var videoRecording = new VideoRecording(document.getElementById("video"))
 
 ## API
 
-* VideoRecording构造函数传参要录制的vedio Dom。
+* VideoRecording构造函数传参要录制的vedio、audio、canvas的Dom对象。
 * startRecording:开始录制。
 * stopRecording:停止录制，返回Promies;then方法的参数是录制完成的Blob对象
 
