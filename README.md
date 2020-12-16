@@ -1,4 +1,4 @@
-# VideoRecording.js | [1.1.0](https://github.com/sdoyuxing/VideoRecording/blob/master/ReleaseNote.md)
+# VideoRecording.js | [1.1.1](https://github.com/sdoyuxing/VideoRecording/blob/master/ReleaseNote.md)
 
 **js库录制vedio、audio、canvas播放的内容**
 
@@ -6,6 +6,8 @@
 [![npm](https://img.shields.io/npm/v/videorecording.svg)](https://npmjs.org/package/videorecording) [![downloads](https://img.shields.io/npm/dm/videorecording.svg)](https://npmjs.org/package/videorecording)
 
 **代码演示:**
+
+视频和声音一起录制：
 
 ```javascript
 var videoRecording = new VideoRecording(document.getElementById("video"))
@@ -19,6 +21,33 @@ document.getElementById("stop").onclick = function () {
         document.getElementById('preview').src = window.URL.createObjectURL(blob);
     });
 }
+```
+
+只录制声音：
+
+```javascript
+ var videoRecording = new VideoRecording(document.getElementById("video"),{type:"audio"})
+            document.getElementById("start").onclick = function () {
+                videoRecording.startRecording();
+            }
+            document.getElementById("stop").onclick = function () {
+                videoRecording.stopRecording().then((blob) => {
+                    document.getElementById('preview').src = window.URL.createObjectURL(blob);
+                });
+            }
+```
+只录制画面：
+
+```javascript
+ var videoRecording = new VideoRecording(document.getElementById("video"),{type:"video"})
+            document.getElementById("start").onclick = function () {
+                videoRecording.startRecording();
+            }
+            document.getElementById("stop").onclick = function () {
+                videoRecording.stopRecording().then((blob) => {
+                    document.getElementById('preview').src = window.URL.createObjectURL(blob);
+                });
+            }
 ```
 
 
@@ -55,7 +84,7 @@ var videoRecording = new VideoRecording(document.getElementById("video"))
 
 ## API
 
-* VideoRecording构造函数传参要录制的vedio、audio、canvas的Dom对象。
+* VideoRecording构造函数两个传参，第一个是要录制的vedio、audio、canvas的Dom对象;第二个配置对象，type属性设置要录制的类型:默认或者为空录制画面和音频;video:录制画面;audio:录制音频。
 * startRecording:开始录制。
 * stopRecording:停止录制，返回Promies;then方法的参数是录制完成的Blob对象
 

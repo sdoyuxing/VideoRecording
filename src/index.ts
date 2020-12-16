@@ -2,7 +2,9 @@ import { VedioRecorder } from './vedioRecorder';
 import { CanvasRecorder } from './canvasRecorder';
 import { AudioRecorder } from './audioRecorder';
 import { MediaStreamRecorder } from './mediaStreamRecorder';
-import { window, Config } from './base';
+import { Config } from './base';
+
+declare let window: any;
 
 class VideoRecording {
   private recorder: MediaStreamRecorder
@@ -13,7 +15,7 @@ class VideoRecording {
       this.recorder = new CanvasRecorder(element, config || { type: 'video' });
     }
     if (element instanceof HTMLVideoElement) {
-      this.recorder = new VedioRecorder(element, config || { type: 'video' });
+      this.recorder = new VedioRecorder(element, config || { type: '' });
     }
     if (element instanceof HTMLAudioElement) {
       this.recorder = new AudioRecorder(element, config || { type: 'audio' });
@@ -30,6 +32,7 @@ class VideoRecording {
     return this.recorder.getBlobs();
   }
 }
+
 
 window.VideoRecording = VideoRecording;
 

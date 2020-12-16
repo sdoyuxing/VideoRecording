@@ -3,5 +3,3 @@ export interface Config {
 }
 
 export declare let MediaRecorder: any;
-
-export declare let window: any;
