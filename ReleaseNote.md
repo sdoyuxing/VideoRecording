@@ -1,6 +1,6 @@
 # VideoRecording- Release Notes
 
-## 1.1.1.20201214
+## 1.1.1.20201216
 * 添加录制后的文件类型配置项
 * 添加了eslint
 
