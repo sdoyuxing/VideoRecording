@@ -26,28 +26,30 @@ document.getElementById("stop").onclick = function () {
 只录制声音：
 
 ```javascript
- var videoRecording = new VideoRecording(document.getElementById("video"),{type:"audio"})
-            document.getElementById("start").onclick = function () {
-                videoRecording.startRecording();
-            }
-            document.getElementById("stop").onclick = function () {
-                videoRecording.stopRecording().then((blob) => {
-                    document.getElementById('preview').src = window.URL.createObjectURL(blob);
-                });
-            }
+var videoRecording = new VideoRecording(document.getElementById("video"),{type:"audio"})
+
+document.getElementById("start").onclick = function () {
+    videoRecording.startRecording();
+}
+document.getElementById("stop").onclick = function () {
+    videoRecording.stopRecording().then((blob) => {
+        document.getElementById('preview').src = window.URL.createObjectURL(blob);
+    });
+}
 ```
 只录制画面：
 
 ```javascript
- var videoRecording = new VideoRecording(document.getElementById("video"),{type:"video"})
-            document.getElementById("start").onclick = function () {
-                videoRecording.startRecording();
-            }
-            document.getElementById("stop").onclick = function () {
-                videoRecording.stopRecording().then((blob) => {
-                    document.getElementById('preview').src = window.URL.createObjectURL(blob);
-                });
-            }
+var videoRecording = new VideoRecording(document.getElementById("video"),{type:"video"})
+
+document.getElementById("start").onclick = function () {
+    videoRecording.startRecording();
+}
+document.getElementById("stop").onclick = function () {
+    videoRecording.stopRecording().then((blob) => {
+        document.getElementById('preview').src = window.URL.createObjectURL(blob);
+    });
+}
 ```
 
 
