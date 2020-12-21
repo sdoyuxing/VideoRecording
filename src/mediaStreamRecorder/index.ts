@@ -3,14 +3,16 @@ import { Config } from '../base';
 declare let MediaRecorder: any;
 
 export class MediaStreamRecorder {
-  constructor(element: HTMLElement, config: Config) {
+  constructor(config: Config, element?: HTMLElement, mediaStream?: MediaStream) {
     this.element = element;
     this.kind = config.type;
     this.config = config;
+    this.canvasMediaStream = mediaStream;
   }
   private mediaRecorder: any
   private config: Config
   protected mdStream: MediaStream
+  protected canvasMediaStream: MediaStream
   private blobs: ArrayBuffer[] = []
   protected element: any
   private kind: string
@@ -38,6 +40,7 @@ export class MediaStreamRecorder {
         };
         this.mediaRecorder.stop();
         this.mediaRecorder = undefined;
+        this.canvasMediaStream = undefined;
       } else {
         reject('录音已停止');
       }
@@ -48,17 +51,18 @@ export class MediaStreamRecorder {
   }
   private setMediaStream(): void {
     this.mdStream = new MediaStream();
-    let canvasMediaStream;
-    if ('captureStream' in this.element) {
-      canvasMediaStream = this.element.captureStream(25); // 25 FPS
-    } else if ('mozCaptureStream' in this.element) {
-      canvasMediaStream = this.element.mozCaptureStream(25);
-    } else if ('webkitCaptureStream' in this.element) {
-      canvasMediaStream = this.element.webkitCaptureStream(25);
+    if (this.canvasMediaStream === undefined) {
+      if ('captureStream' in this.element) {
+        this.canvasMediaStream = this.element.captureStream(25); // 25 FPS
+      } else if ('mozCaptureStream' in this.element) {
+        this.canvasMediaStream = this.element.mozCaptureStream(25);
+      } else if ('webkitCaptureStream' in this.element) {
+        this.canvasMediaStream = this.element.webkitCaptureStream(25);
+      }
     }
     if (this.kind)
-      this.mdStream.addTrack(this.getTracks(canvasMediaStream, this.kind)[0]);
-    else this.mdStream = canvasMediaStream;
+      this.mdStream.addTrack(this.getTracks(this.canvasMediaStream, this.kind)[0]);
+    else this.mdStream = this.canvasMediaStream;
   }
   private getTracks(stream: MediaStream, kind: string = 'audio'): MediaStreamTrack[] {
     if (!stream || !stream.getTracks) {

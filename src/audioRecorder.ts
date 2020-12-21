@@ -7,7 +7,7 @@ export class AudioRecorder extends MediaStreamRecorder {
       throw 'Audio recording configuration item type cannot be video.';
       return;
     }
-    super(audioElement, config);
+    super(config, audioElement);
   }
   public record(): void {
     super.record();

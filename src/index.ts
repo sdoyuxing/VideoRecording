@@ -2,23 +2,25 @@ import { VedioRecorder } from './vedioRecorder';
 import { CanvasRecorder } from './canvasRecorder';
 import { AudioRecorder } from './audioRecorder';
 import { MediaStreamRecorder } from './mediaStreamRecorder';
+import { StreamRecorder } from './streamRecorder';
 import { Config } from './base';
 
 declare let window: any;
 
 class VideoRecording {
   private recorder: MediaStreamRecorder
-  private element: HTMLElement
-  constructor(element: HTMLElement, config?: Config) {
-    this.element = element;
-    if (element instanceof HTMLCanvasElement) {
-      this.recorder = new CanvasRecorder(element, config || { type: 'video' });
+  constructor(source: HTMLCanvasElement | HTMLVideoElement | HTMLAudioElement | MediaStream, config?: Config) {
+    if (source instanceof HTMLCanvasElement) {
+      this.recorder = new CanvasRecorder(source, config || { type: 'video' });
     }
-    if (element instanceof HTMLVideoElement) {
-      this.recorder = new VedioRecorder(element, config || { type: '' });
+    if (source instanceof HTMLVideoElement) {
+      this.recorder = new VedioRecorder(source, config || { type: '' });
     }
-    if (element instanceof HTMLAudioElement) {
-      this.recorder = new AudioRecorder(element, config || { type: 'audio' });
+    if (source instanceof HTMLAudioElement) {
+      this.recorder = new AudioRecorder(source, config || { type: 'audio' });
+    }
+    if (source instanceof MediaStream) {
+      this.recorder = new StreamRecorder(source, config || { type: 'video' });
     }
   }
   public startRecording(): void {

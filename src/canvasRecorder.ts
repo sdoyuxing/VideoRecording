@@ -8,7 +8,7 @@ export class CanvasRecorder extends MediaStreamRecorder {
       throw 'Canvas recording configuration item type cannot be audio.';
       return;
     }
-    super(canvasElement, config || { type: 'video' });
+    super(config || { type: 'video' }, canvasElement);
   }
   public record(): void {
     super.record();
