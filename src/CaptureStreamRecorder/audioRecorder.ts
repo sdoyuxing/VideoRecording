@@ -1,5 +1,5 @@
 import { MediaStreamRecorder } from './mediaStreamRecorder';
-import { Config } from './base';
+import { Config } from '../base';
 
 export class AudioRecorder extends MediaStreamRecorder {
   constructor(audioElement: HTMLAudioElement, config: Config) {
@@ -12,5 +12,4 @@ export class AudioRecorder extends MediaStreamRecorder {
   public record(): void {
     super.record();
   }
-
 }

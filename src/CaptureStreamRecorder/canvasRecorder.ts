@@ -1,5 +1,5 @@
 import { MediaStreamRecorder } from './mediaStreamRecorder';
-import { Config } from './base';
+import { Config } from '../base';
 
 export class CanvasRecorder extends MediaStreamRecorder {
   constructor(canvasElement: HTMLCanvasElement, config: Config) {

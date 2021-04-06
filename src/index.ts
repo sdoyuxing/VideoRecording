@@ -1,8 +1,8 @@
-import { VedioRecorder } from './vedioRecorder';
-import { CanvasRecorder } from './canvasRecorder';
-import { AudioRecorder } from './audioRecorder';
-import { MediaStreamRecorder } from './mediaStreamRecorder';
-import { StreamRecorder } from './streamRecorder';
+import { VedioRecorder } from './CaptureStreamRecorder/vedioRecorder';
+import { CanvasRecorder } from './CaptureStreamRecorder/canvasRecorder';
+import { AudioRecorder } from './CaptureStreamRecorder/audioRecorder';
+import { MediaStreamRecorder } from './CaptureStreamRecorder/mediaStreamRecorder';
+import { StreamRecorder } from './CaptureStreamRecorder/streamRecorder';
 import { Config } from './base';
 
 declare let window: any;
